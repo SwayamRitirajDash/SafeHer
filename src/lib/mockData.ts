@@ -1,0 +1,216 @@
+import { EmergencyContact, IncidentReport, SafePlace, UserProfile, UserAccount } from './types';
+
+export const NATIONAL_HELPLINES = [
+  { name: 'National Emergency Number', number: '112', category: 'All Emergencies', icon: 'shield' },
+  { name: 'Women Helpline (Domestic/Harassment)', number: '1091', category: 'Women in Distress', icon: 'heart' },
+  { name: 'Women Helpline (National Commission for Women)', number: '7827170170', category: 'NCW 24/7 Support', icon: 'phone' },
+  { name: 'Police Helpline', number: '100', category: 'Immediate Response', icon: 'shield' },
+  { name: 'Medical Emergency / Ambulance', number: '102 / 108', category: 'Medical', icon: 'activity' },
+  { name: 'Cyber Crime Helpline', number: '1930', category: 'Online Safety', icon: 'lock' },
+];
+
+export const INITIAL_CONTACTS: EmergencyContact[] = [
+  {
+    id: 'c1',
+    name: 'Primary Guardian (Mom)',
+    phone: '+91 9XXXXXXXX1',
+    email: 'guardian.mom@example.com',
+    relationship: 'Family',
+    isPrimary: true,
+    notifyViaWhatsapp: true,
+    notifyViaSMS: true,
+    notifyViaCall: true,
+  },
+  {
+    id: 'c2',
+    name: 'Emergency Contact (Sister)',
+    phone: '+91 9XXXXXXXX2',
+    email: 'sister.emergency@example.com',
+    relationship: 'Family',
+    isPrimary: true,
+    notifyViaWhatsapp: true,
+    notifyViaSMS: true,
+    notifyViaCall: false,
+  },
+  {
+    id: 'c3',
+    name: 'Trusted Friend',
+    phone: '+91 9XXXXXXXX3',
+    email: 'friend.trusted@example.com',
+    relationship: 'Friend',
+    isPrimary: false,
+    notifyViaWhatsapp: true,
+    notifyViaSMS: false,
+    notifyViaCall: false,
+  },
+];
+
+export const INITIAL_SAFE_PLACES: SafePlace[] = [
+  {
+    id: 'sp-1',
+    name: 'Central Police Station',
+    type: 'police',
+    address: 'Connaught Place, Sector 1',
+    phone: '011-23344556',
+    latitude: 28.6315,
+    longitude: 77.2167,
+    isOpen24Hours: true,
+    distanceKm: 0.8,
+  },
+  {
+    id: 'sp-2',
+    name: 'All India Institute of Medical Sciences (AIIMS)',
+    type: 'hospital',
+    address: 'Sri Aurobindo Marg, Ansari Nagar',
+    phone: '011-26588500',
+    latitude: 28.5672,
+    longitude: 77.2100,
+    isOpen24Hours: true,
+    distanceKm: 2.1,
+  },
+  {
+    id: 'sp-3',
+    name: 'Women & Child Safety Desk - Metro Station',
+    type: 'safe-hub',
+    address: 'Rajiv Chowk Metro Gate 3',
+    phone: '1091',
+    latitude: 28.6328,
+    longitude: 77.2195,
+    isOpen24Hours: true,
+    distanceKm: 0.5,
+  },
+  {
+    id: 'sp-4',
+    name: 'Safdarjung 24/7 Emergency Hospital',
+    type: 'hospital',
+    address: 'Ring Road, Opposite AIIMS',
+    phone: '011-26165060',
+    latitude: 28.5704,
+    longitude: 77.2066,
+    isOpen24Hours: true,
+    distanceKm: 2.4,
+  },
+  {
+    id: 'sp-5',
+    name: 'Sakhi One Stop Crisis Centre for Women',
+    type: 'shelter',
+    address: 'District Center, Block B',
+    phone: '181',
+    latitude: 28.6250,
+    longitude: 77.2210,
+    isOpen24Hours: true,
+    distanceKm: 1.3,
+  },
+];
+
+export const INITIAL_INCIDENTS: IncidentReport[] = [
+  {
+    id: 'inc-1',
+    category: 'poor-lighting',
+    title: 'Defective Street Lights & Dark Alley',
+    description: 'The pedestrian walkway between Metro Gate 4 and Green Park Market has had zero working lights for 3 days.',
+    locationName: 'Green Park Outer Ring Walkway',
+    latitude: 28.5588,
+    longitude: 77.2078,
+    severity: 3,
+    isAnonymous: true,
+    timestamp: '2 hours ago',
+    upvotes: 24,
+    verified: true,
+  },
+  {
+    id: 'inc-2',
+    category: 'suspicious-activity',
+    title: 'Unattended Group Loitering Near Bus Stop',
+    description: 'Group of men catcalling commuters near the south exit bus shelter after 8:30 PM.',
+    locationName: 'Lajpat Nagar South Bus Stop',
+    latitude: 28.5677,
+    longitude: 77.2433,
+    severity: 4,
+    isAnonymous: false,
+    reporterName: 'Kavita R.',
+    timestamp: '5 hours ago',
+    upvotes: 48,
+    verified: true,
+  },
+  {
+    id: 'inc-3',
+    category: 'unsafe-zone',
+    title: 'Isolated Underpass with No Security',
+    description: 'Underpass elevator out of order and security guard missing during evening hours.',
+    locationName: 'Sector 14 Pedestrian Underpass',
+    latitude: 28.6400,
+    longitude: 77.2280,
+    severity: 3,
+    isAnonymous: true,
+    timestamp: '1 day ago',
+    upvotes: 19,
+    verified: false,
+  },
+];
+
+export const DEFAULT_USER_PROFILE: UserProfile = {
+  name: 'ABCD User',
+  phone: '+91 9XXXXXXXXX',
+  email: 'demo.abcd@example.com',
+  bloodGroup: 'O+ Positive',
+  emergencyNotes: 'No known medical allergies. Carries emergency ID card.',
+  primaryAddress: '123 Demo Street, Tech Zone, New Delhi, 110001',
+};
+
+export const DEFAULT_USER_ACCOUNT: UserAccount = {
+  id: 'usr-1',
+  ...DEFAULT_USER_PROFILE,
+  avatarUrl: '',
+  createdAt: '2026-01-15',
+};
+
+export const DEMO_ACCOUNTS: Array<UserAccount & { password: string }> = [
+  {
+    id: 'usr-1',
+    name: 'ABCD User',
+    phone: '+91 9XXXXXXXXX',
+    email: 'demo.abcd@example.com',
+    bloodGroup: 'O+ Positive',
+    emergencyNotes: 'No known medical allergies. Demo account.',
+    primaryAddress: '123 Demo Street, Tech Zone, New Delhi',
+    avatarUrl: '',
+    createdAt: '2026-01-15',
+    password: 'password123',
+  },
+  {
+    id: 'usr-2',
+    name: 'Demo Guardian',
+    phone: '+91 9XXXXXXXX1',
+    email: 'guardian.demo@example.com',
+    bloodGroup: 'B+ Positive',
+    emergencyNotes: 'Demo emergency contact profile.',
+    primaryAddress: '456 Sample Avenue, Tech Park, Gurugram',
+    avatarUrl: '',
+    createdAt: '2026-02-10',
+    password: 'password123',
+  },
+];
+
+export const SAFETY_TIPS = [
+  {
+    title: 'Share Live Location in Advance',
+    tip: 'Before stepping into a late cab or walking through isolated paths, toggle SafeWalk so your circle is actively monitoring.',
+    category: 'Commute',
+  },
+  {
+    title: 'Discreet Fake Call Exit',
+    tip: 'If someone is making you uncomfortable in public, trigger the Fake Call utility to speak to an authoritative simulated caller.',
+    category: 'Precaution',
+  },
+  {
+    title: 'Keep Battery Above 20%',
+    tip: 'GPS tracking and high-frequency dispatch perform best when Low Battery Mode does not throttle background geolocators.',
+    category: 'Device',
+  },
+  {
+    title: 'Memorize National 112 & 1091',
+    tip: '112 connects immediately to all unified emergency services across India even with minimal cellular signal.',
+    category: 'Helpline',
+  },
+];

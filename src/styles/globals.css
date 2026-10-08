@@ -1,0 +1,67 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #f9fafb;
+  --bg-surface: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-subtle: #f3f4f6;
+  --border-default: #e5e7eb;
+  --accent-success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+  color: #000000;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Typography Classes */
+.font-general {
+  font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-satoshi {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Flat Structural Shadow */
+.flat-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
